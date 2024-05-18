@@ -29,3 +29,13 @@ class GraphHandler:
         nx.draw_networkx_edge_labels(self.G, pos, edge_labels=edge_labels, font_size=18)
         plt.savefig('image/graph.png')
         plt.close()
+    
+    def find_bridge_words(self, word1, word2):
+        if word1 not in self.G or word2 not in self.G:
+            return "No word1 or word2 in the graph!"
+        
+        bridge_words = [n for n in self.G.successors(word1) if word2 in self.G.successors(n)]
+        if not bridge_words:
+            return "No bridge words from {} to {}!".format(word1, word2)
+        
+        return "The bridge words from {} to {} are: {}".format(word1, word2, ', '.join(bridge_words))

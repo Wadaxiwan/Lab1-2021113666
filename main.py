@@ -32,6 +32,28 @@ class MyApp(QWidget):
         layout.addLayout(input_layout)
 
         # 3. 
+        bridge_layout = QHBoxLayout()
+
+        self.word1_box = QLineEdit(self)
+        self.word1_box.setPlaceholderText("Word 1")
+        self.word1_box.setFixedHeight(50)
+        bridge_layout.addWidget(self.word1_box)
+
+        self.word2_box = QLineEdit(self)
+        self.word2_box.setPlaceholderText("Word 2")
+        self.word2_box.setFixedHeight(50)
+        bridge_layout.addWidget(self.word2_box)
+
+        find_button = QPushButton('Find Bridge Words', self)
+        find_button.setFixedHeight(50)
+        find_button.setFixedWidth(200)
+        find_button.clicked.connect(self.find_bridge_words)
+        bridge_layout.addWidget(find_button)
+
+        layout.addLayout(bridge_layout)
+
+        self.result_label = QLabel(self)
+        layout.addWidget(self.result_label)
 
         # 2.
         self.image_label = QLabel(self)
@@ -56,6 +78,13 @@ class MyApp(QWidget):
         pixmap = QPixmap('image/graph.png')
         self.image_label.setPixmap(pixmap)
         self.image_label.setScaledContents(True)
+
+    def find_bridge_words(self):
+        '''查询桥接词'''
+        word1 = self.word1_box.text()
+        word2 = self.word2_box.text()
+        result = self.graph_handler.find_bridge_words(word1, word2)
+        self.result_label.setText(result)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
