@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import re
 
-# Add something
+# Add something in B1
 
 class GraphHandler:
     def __init__(self):
