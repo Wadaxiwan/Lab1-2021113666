@@ -6,6 +6,8 @@ import sys
 
 # Add in C4
 # Add comment in B1
+# Add something in IDE
+
 class MyApp(QWidget):
     def __init__(self):
         super().__init__()
