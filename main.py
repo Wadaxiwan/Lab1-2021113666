@@ -4,6 +4,7 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 import sys
 
+# Add in C4
 # Add comment in B1
 class MyApp(QWidget):
     def __init__(self):
