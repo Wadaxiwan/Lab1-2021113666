@@ -207,7 +207,7 @@ public class GraphHandler {
         return "The shortest path from " + word1 + " to " + word2 + " is: "
                 + String.join(" -> ", path) + " with total weight " + pathLength;
       }
-
+      
       for (Map.Entry<String, Integer> neighbor : graph.get(smallest).entrySet()) {
         double alt = distances.get(smallest) + neighbor.getValue();
         if (alt < distances.get(neighbor.getKey())) {
